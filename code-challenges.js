@@ -79,22 +79,22 @@ var stringWithVowels2 = "ILoveJavaScript";
 //   return noVow;
 // };
 
-// const noVowels = (str) => {
-//   let lowerCaseStr = str.toLowerCase();
-//   let noVow = "";
-//   for (let i = 0; i < lowerCaseStr.length; i++) {
-//     if (
-//       lowerCaseStr[i] !== "a" &&
-//       lowerCaseStr[i] !== "e" &&
-//       lowerCaseStr[i] !== "i" &&
-//       lowerCaseStr[i] !== "o" &&
-//       lowerCaseStr[i] !== "u"
-//     ) {
-//       noVow += lowerCaseStr[i];
-//     }
-//   }
-//   return noVow;
-// };
+const noVowels = (str) => {
+  let lowerCaseStr = str.toLowerCase();
+  let noVow = "";
+  for (let i = 0; i < lowerCaseStr.length; i++) {
+    if (
+      lowerCaseStr[i] !== "a" &&
+      lowerCaseStr[i] !== "e" &&
+      lowerCaseStr[i] !== "i" &&
+      lowerCaseStr[i] !== "o" &&
+      lowerCaseStr[i] !== "u"
+    ) {
+      noVow += lowerCaseStr[i];
+    }
+  }
+  return noVow;
+};
 // console.log(noVowels(stringWithVowels1));
 // console.log(noVowels(stringWithVowels1, vowels));
 
@@ -107,23 +107,28 @@ var refactorTester2 = 42;
 var refactorTester3 = "IAmACodingMaster";
 // console.log(typeof refactorTester3);
 
-const noVowels = (str) => {
-  let lowerCaseStr = typeof str === string ? str.toLowerCase() : str;
+const noVows2 = (str) => {
+  let lowerStr = typeof str === "string" ? str.toLowerCase() : str;
   let noVow = "";
-  for (let i = 0; i < lowerCaseStr.length; i++) {
-    if (
-      lowerCaseStr[i] !== "a" &&
-      lowerCaseStr[i] !== "e" &&
-      lowerCaseStr[i] !== "i" &&
-      lowerCaseStr[i] !== "o" &&
-      lowerCaseStr[i] !== "u"
-    ) {
-      noVow += lowerCaseStr[i];
-    } else {
-      return `not a string`;
+  if (typeof lowerStr === "string") {
+    for (let i = 0; i < lowerStr.length; i++) {
+      // let loweCaseStr = str[i].toLowerCase();
+      let loweCaseStr = lowerStr[i];
+      if (
+        loweCaseStr !== "a" &&
+        loweCaseStr !== "e" &&
+        loweCaseStr !== "i" &&
+        loweCaseStr !== "o" &&
+        loweCaseStr !== "u"
+      ) {
+        noVow += loweCaseStr;
+      }
     }
+  } else {
+    return `${str} is not a string`;
   }
+
   return noVow;
 };
-console.log(noVowels(stringWithVowels1));
-console.log(noVowels(refactorTester1));
+console.log(noVows2(refactorTester3));
+console.log(noVows2(refactorTester1));
